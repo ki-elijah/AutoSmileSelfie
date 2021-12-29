@@ -7,6 +7,8 @@ smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
 
 while True:
     _, frame = cap.read()
+    if frame is None:
+        break
     original_frame = frame.copy()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     face = face_cascade.detectMultiScale(gray, 1.3, 5)
